@@ -17,6 +17,11 @@ type cfImageDetails struct {
 }
 
 func main() {
+
+	if len(os.Args) < 3 {
+		log.Fatal("Usage: cf-grafeas <grafeas-server-url> <image_name>")
+	}
+
 	grafeas_host := os.Args[1]
 	image_name := os.Args[2]
 	grafeas_client := v1alpha1.NewGrafeasApiWithBasePath(grafeas_host)
